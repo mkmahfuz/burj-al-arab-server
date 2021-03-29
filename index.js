@@ -38,6 +38,10 @@ client.connect(err => {
       //res.send(newBooking);
       console.log(newBooking);
   })
+  app.get('/bookings',(req, res)=>{
+      const qr = req.query.email;
+      collection.find({email:qr}).toArray((err,docs)=>{res.send(docs)})
+  })
 
   //client.close ta off kore dilam
   //client.close();
