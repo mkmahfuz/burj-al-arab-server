@@ -40,6 +40,8 @@ client.connect(err => {
   })
   app.get('/bookings',(req, res)=>{
       const qr = req.query.email;
+      const token = req.headers.authorization;
+      console.log(token);
       collection.find({email:qr}).toArray((err,docs)=>{res.send(docs)})
   })
 
